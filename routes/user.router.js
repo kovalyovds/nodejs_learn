@@ -4,6 +4,7 @@ const {userController} = require("../controllers");
 const {commonMiddleware, userMiddleware} = require("../middleware");
 
 router.get('/',
+    userMiddleware.isUserQueryValid,
     userController.findUsers);
 router.post('/',
     userMiddleware.isUserValidForCreate,
